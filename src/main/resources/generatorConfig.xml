@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/ylq/Applications/m2/repository/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar"/>
+
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/example?characterEncoding=utf-8"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- generate Model -->
+        <javaModelGenerator targetPackage="com.cake.server.entity"
+                            targetProject="/Users/ylq/cake/app-server/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+
+        <!-- generate xml -->
+        <sqlMapGenerator targetPackage="com.cake.server.dao"
+                         targetProject="/Users/ylq/cake/app-server/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- generate Mapper -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.cake.server.dao"
+                             targetProject="/Users/ylq/cake/app-server/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="" tableName="example" domainObjectName="Example"/>
+        <!--<table schema="" tableName="air_city" domainObjectName="AirCity"/>-->
+        <!--<table schema="" tableName="air_point" domainObjectName="AirPoint"/>-->
+        <!--<table schema="" tableName="air_quality" domainObjectName="AirQuality"/>-->
+        <!--<table schema="" tableName="include_air" domainObjectName="Include"/>-->
+        <!--<table schema="" tableName="include_weather_day" domainObjectName="IncludeWeatherDay"/>-->
+        <!--<table schema="" tableName="include_weather_now" domainObjectName="IncludeWeatherNow"/>-->
+        <!--<table schema="" tableName="user_air_city" domainObjectName="UserAirCity"/>-->
+
+    </context>
+</generatorConfiguration>
